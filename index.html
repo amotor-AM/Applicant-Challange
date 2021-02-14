@@ -21,8 +21,8 @@
                 <section class="info">
                     <div id="google_translate_element" style="display:none"></div>
                     <div class="button_holder">
-                        <button class="spanish" onclick="translateToSpanish()"></button>
-                        <button class="english" onclick="translateToEnglish()"></button>
+                        <button class="spanish" onclick="translateToSpanish(event)"></button>
+                        <button class="english" onclick="translateToEnglish(event)"></button>
                     </div>
                     <div class="form_details_text">
                         <p>Tell Us about yourself</p>
@@ -113,7 +113,8 @@ function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: "en"}, 'google_translate_element');
 }
 
-function translateToSpanish() {
+function translateToSpanish(e) {
+    e.preventDefault()
  var selectField = document.querySelector("#google_translate_element select");
  var button = document.getElementsByClassName("spanish");
   for(var i=0; i < selectField.children.length; i++){
@@ -126,7 +127,8 @@ function translateToSpanish() {
   }
 }
 
-function translateToEnglish() {
+function translateToEnglish(e) {
+    e.preventDefault()
  var selectField = document.querySelector("#google_translate_element select");
   for(var i=0; i < selectField.children.length; i++){
     var option = selectField.children[i];
