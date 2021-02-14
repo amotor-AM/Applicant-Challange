@@ -5,8 +5,6 @@ This project and any code included is submitted soley for evaluation purposes fo
 
 *** END OF DISCLAIMER ***
 
-Send a link to your challenge submission to jobs@alisops.com.  Good luck!
-
 This was a really fun challenge. For this specific task I would have likely preferred to use React because I can easily implement a more complex form validation. I CAN implement something similar in Javascript like I have done in the past (you can see an example here https://github.com/Build-Week-Water-my-Plants-2-PT/Landing-Page/blob/main/Contact_Us/contact_us.js) but due to the number of input fields I instead choose to implement the default required validation schema provided by HTML. This is alright for basic validataion but is not perfect. For instance the phone number fields are using the "tel" input type to validate that a phone number has been entered. Some browsers have support for this type of validation, however some do not and instead revert the field to a text input. If we were to actually use this input form then we would need to define a phone schema to validate the phone number is correct on submit. This is why I usually like to use React for contact forms. With react we can use yup in conjunction with formik to achieve a very robust validation schema.
 
 You can see an example of this on lines 8-20 here: 
