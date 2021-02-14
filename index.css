@@ -1,0 +1,221 @@
+/* CSS Reset Ignore this part */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+    font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ---- BEGINNING OF CSS ---- */
+
+.header {
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.header h1 {
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: bold;
+    padding: 0;
+}
+
+.header h2 {
+    font-size: clamp(1.5rem, 5vw, 2.2rem);
+    text-decoration: underline;
+}
+
+.portfolio_button {
+    padding: 1rem 3rem;
+    border-radius: 10% / 22%;
+    background: #ff9100;
+    border: 2px solid currentColor;
+    color: white;
+    font-weight: bold;
+    transition: all 0.25s ease;
+}
+
+.portfolio_button:hover {
+    background: white;
+    color: #ff9100;
+}
+
+.body {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex; 
+    justify-content: center;
+}
+
+.form {
+    width: 40%;
+    display: flex;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+    padding: 1rem;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: white;
+    border: 1px solid black;
+}
+
+.form_details_text {
+    background: rgba(207, 209, 207, 0.808);
+    text-align: center;
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.info, .details {
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem 0 1rem 0;
+}
+
+.button_holder {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.spanish, .english, .viewCode, .submit {
+    outline: none;
+    height: 40px;
+    text-align: center;
+    width: 130px;
+    border-radius: 40px;
+    background: #fff;
+    border: 2px solid #1ECD97;
+    color: #1ECD97;
+    letter-spacing: 1px;
+    text-shadow: 0;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.25s ease; 
+}
+
+.spanish {
+    margin-right: 2rem;
+}
+
+.spanish:hover, .english:hover, .viewCode:hover {
+    color: white;
+    background: #1ECD97;
+}
+
+.spanish:active, .english:active, .viewCode:active {
+    letter-spacing: 2px;
+}
+
+.spanish:after {
+    content: "Espanol"
+}
+
+.english:after {
+    content: "english"
+}
+
+.viewCode:after {
+    content: "code"
+}
+
+.info > label, 
+.details > label, 
+.details > p, 
+.witness_details > label, 
+.attorney_details > label {
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+
+.witness, .attorney {
+    display: flex;
+}
+
+.witness, .attorney {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+}
+
+.witness p, .attorney p {
+    font-size: 1.5rem;
+    margin-right: 1rem;
+}
+
+.witness_details {
+    display: none;
+}
+
+.submit_wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 500px) {
+    .form {
+        width: 75%;
+    }
+}
+
+#viewData {
+    font-size: 1.5rem;
+    line-height: 170%;
+    padding: 2rem;
+}
+
+#viewData h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: underline;
+}

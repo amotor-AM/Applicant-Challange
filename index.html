@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css" media="screen"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <title>Input Form</title>
+</head>
+<body>
+    <div class="header">
+        <h1>Alex Motor</h1>
+        <button class="viewCode" onclick="window.open('https://portfolio-86140.web.app/', '_blank')"></button>
+    </div>
+    <div class="body">
+        <div class="form">
+            <form id="customerInfo" onsubmit="submitForm(event)"> 
+                <section class="info">
+                    <div id="google_translate_element" style="display:none"></div>
+                    <div class="button_holder">
+                        <button class="spanish" onclick="translateToSpanish()"></button>
+                        <button class="english" onclick="translateToEnglish()"></button>
+                    </div>
+                    <div class="form_details_text">
+                        <p>Tell Us about yourself</p>
+                    </div>
+                <label for="prefix">Prefix</label>
+                <select id="prefix" name="prefix">
+                    <option value="Dr.">Dr.</option>
+                    <option value="Miss">Miss</option>
+                    <option value="Mr.">Mr.</option>
+                    <option value="Mrs.">Mrs.</option>
+                    <option value="Ms.">Ms.</option>
+                    <option value="Mx.">Mx.</option>
+                </select>
+                <label for="fName">First Name </label>
+                    <input type="text" id="fName" name="fName" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="lName">Last Name </label>
+                    <input type="text" id="lName" name="lName" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="address">Address </label>
+                    <input type="text" id="address" name="address" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="city">City </label>
+                    <input type="text" id="city" name="city" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="state">State </label>
+                    <input type="text" id="state" name="state" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="zip">Zip </label>
+                    <input type="text" id="zip" name="zip" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="tel">Phone </label>
+                    <input type="text" id="phone" name="phone" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="email">Email </label>
+                    <input type="email" id="email" name="email" autocomplete="false" onchange="handleChange(event)" required />
+                </section>
+            <section class="details">
+                <div class="form_details_text">
+                    <p>What Happened?</p>
+                </div>
+                    <label for="who">Who? </label>
+                    <input type="text" id="who" name="who" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="what">What? </label>
+                    <textarea name="what" id="what" autocomplete="false" maxlength="2000" style="resize: none;" onchange="handleChange(event)" required></textarea>
+                    <p>Where? </p>
+                        <label for="whereCity">City </label>
+                        <input type="text" id="whereCity" name="whereCity" autocomplete="false" onchange="handleChange(event)" required />
+                        <label for="whereState">State </label>
+                        <input type="text" id="whereState" name="whereState" autocomplete="false" onchange="handleChange(event)" required />
+                    <label for="date">When? </label>
+                    <input type="date" id="date" name="date" onchange="handleChange(event)" required />
+                </section>
+                <section class="questions">
+                    <div class="form_details_text">
+                        <p>Please answer the following questions</p>
+                    </div>
+                    <div class="witness">
+                        <p>Do you have a witness?</p>
+                        <input type="checkbox" id="witness_checkbox" name="hasWitness" onchange="handleChange(event)" onclick="showDetails()">
+                    </div>
+                    <div class="witness_details" style="display: none;">
+                        <label for="witness_fName">Witness' First Name</label>
+                        <input type="text" id="witness_fName" name="witness_fName" onchange="handleChange(event)" autocomplete="false"/>
+                        <label for="witness_lName">Witness' Last Name</label>
+                        <input type="text" id="witness_lName" name="witness_lName" onchange="handleChange(event)" autocomplete="false"/>
+                        <label for="witness_phone">Witness' Phone Number</label>
+                        <input type="tel" id="witness_phone" name="witness_phone" onchange="handleChange(event)" autocomplete="false"/>
+                    </div>
+                    
+                    <div class="attorney">
+                        <p>Do you have an attorney?</p>
+                        <input type="checkbox" id="attorney_checkbox" name="hasAttorney" onchange="handleChange(event)" onclick="showDetails()">
+                    </div>
+                    <div class="attorney_details" style="display: none">
+                        <label for="attorney_name">Attourney Name</label>
+                        <input type="text" id="attorney_name" name="attorney_name" onchange="handleChange(event)" autocomplete="false"/>
+                        <label for="practice_name">Practice Name</label>
+                        <input type="text" id="practice_name" name="practice_name" onchange="handleChange(event)" autocomplete="false"/>
+                        <label for="attorney_website">Attourney Website</label>
+                        <input type="text" id="attorney_website" name="attorney_website" onchange="handleChange(event)" autocomplete="false"/>
+                    </div>     
+                </section>
+                <div class="submit_wrapper">
+                    <button class="submit" type="submit">Send Info</button>
+                </div>
+                </div>   
+            </form> 
+        </div>
+
+        <div id="viewData"></div>
+    </div>
+    <script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({pageLanguage: "en"}, 'google_translate_element');
+}
+
+function translateToSpanish() {
+ var selectField = document.querySelector("#google_translate_element select");
+ var button = document.getElementsByClassName("spanish");
+  for(var i=0; i < selectField.children.length; i++){
+    var option = selectField.children[i];
+    if(option.value== "es"){
+       selectField.selectedIndex = i;
+       selectField.dispatchEvent(new Event('change'));
+       break;
+    }
+  }
+}
+
+function translateToEnglish() {
+ var selectField = document.querySelector("#google_translate_element select");
+  for(var i=0; i < selectField.children.length; i++){
+    var option = selectField.children[i];
+    if(option.value== "en"){
+       selectField.selectedIndex = i;
+       selectField.dispatchEvent(new Event('change'));
+       break;
+    }
+  }
+}
+
+</script>
+<script type="text/javascript" src="form.js"></script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
